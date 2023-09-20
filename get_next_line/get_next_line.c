@@ -6,7 +6,7 @@
 /*   By: aflorido <aflorido@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 19:15:45 by aflorido          #+#    #+#             */
-/*   Updated: 2023/09/13 22:59:04 by aflorido         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:13:58 by aflorido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ char	*ft_fill(int fd, char *data)
 		if (bytes_read == -1)
 		{
 			free(buffer);
-			if (data != NULL)
-				free(data);
+			free(data);
 			return (NULL);
 		}
 		buffer[bytes_read] = '\0';

@@ -6,7 +6,7 @@
 /*   By: aflorido <aflorido@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 19:15:57 by aflorido          #+#    #+#             */
-/*   Updated: 2023/09/13 23:11:29 by aflorido         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:14:32 by aflorido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,7 @@ char	*ft_strjoin_special(char *s1, char *s2)
 		join[i] = s1[i];
 		++i;
 	}
-	if (s1 != NULL)
-		free(s1);
+	free(s1);
 	j = 0;
 	while (s2 != NULL && s2[j] != '\0')
 		join[i++] = s2[j++];

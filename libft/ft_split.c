@@ -6,7 +6,7 @@
 /*   By: aflorido <aflorido@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:33:15 by aflorido          #+#    #+#             */
-/*   Updated: 2023/09/11 15:33:17 by aflorido         ###   ########.fr       */
+/*   Updated: 2023/09/20 21:05:31 by aflorido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,17 @@ static void	advance_index_len(char const *s, char c, int *j, int *len)
 	}
 }
 
+static void	*free_everything(char **res, int stop)
+{
+	int	i;
+
+	i = 0;
+	while (i <= stop)
+		free(res[i++]);
+	free(res);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**res;
@@ -65,6 +76,8 @@ char	**ft_split(char const *s, char c)
 	{
 		advance_index_len(s, c, &j, &len);
 		res[i] = ft_substr(s, j - len, len);
+		if (res[i] == NULL)
+			return (free_everything(res, i), NULL);
 		++i;
 	}
 	res[word_count] = NULL;

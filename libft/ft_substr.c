@@ -6,7 +6,7 @@
 /*   By: aflorido <aflorido@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:49:12 by aflorido          #+#    #+#             */
-/*   Updated: 2023/09/11 21:27:48 by aflorido         ###   ########.fr       */
+/*   Updated: 2023/09/20 20:46:59 by aflorido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (substr == NULL)
 		return (NULL);
 	i = 0;
-	while (s[i] != '\0' && i < len)
+	while (i < len && s[start + i] != '\0')
 	{
 		substr[i] = s[start + i];
 		++i;

@@ -1,3 +1,3 @@
 # libft
 
-Functions that do NOT pass francinette strict: ft_split.
+:white_check_mark: Everything passes francinette strict. :white_check_mark:

@@ -80,6 +80,42 @@
     <td><a href="#ft_itoa">Explained</a></td>
     <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_itoa.c">ft_itoa.c</a></td>
   </tr>
+  <tr>
+    <td>ft_strmapi</td>
+    <td>Applies the function ’f’ to each character of the string ’s’, and passing its index as first argument to create a new string (with malloc(3)) resulting from successive applications of ’f’.</td>
+    <td><a href="#ft_strmapi">Explained</a></td>
+    <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_strmapi.c">ft_strmapi.c</a></td>
+  </tr>
+  <tr>
+    <td>ft_striteri</td>
+    <td>Applies the function ’f’ on each character of the string passed as argument, passing its index as first argument. Each character is passed by address to ’f’ to be modified if necessary.</td>
+    <td><a href="#ft_striteri">Explained</a></td>
+    <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_striteri.c">ft_striteri.c</a></td>
+  </tr>
+  <tr>
+    <td>ft_putchar_fd</td>
+    <td>Outputs the character ’c’ to the given file descriptor.</td>
+    <td><a href="#ft_putchar_fd">Explained</a></td>
+    <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_putchar_fd.c">ft_putchar_fd.c</a></td>
+  </tr>
+  <tr>
+    <td>ft_putstr_fd</td>
+    <td>Outputs the string ’s’ to the given file descriptor.</td>
+    <td><a href="#ft_putstr_fd">Explained</a></td>
+    <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_putstr_fd.c">ft_putstr_fd.c</a></td>
+  </tr>
+  <tr>
+    <td>ft_putendl_fd</td>
+    <td>Outputs the string ’s’ to the given file descriptor followed by a newline.</td>
+    <td><a href="#ft_putendl_fd">Explained</a></td>
+    <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_putendl_fd.c">ft_putendl_fd.c</a></td>
+  </tr>
+  <tr>
+    <td>ft_putnbr_fd</td>
+    <td>Outputs the integer ’n’ to the given file descriptor.</td>
+    <td><a href="#ft_putnbr_fd">Explained</a></td>
+    <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_putnbr_fd.c">ft_putnbr_fd.c</a></td>
+  </tr>
 </table>
 
 <h2>Bonus functions</h2>

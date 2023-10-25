@@ -42,7 +42,20 @@
 </table>
 
 <h2>Additional functions</h2>
-
+<table>
+  <tr>
+    <th>Function name</th>
+    <th>Description</th>
+    <th>Go to code explanation</th>
+    <th>Link to source code</th>
+  </tr>
+  <tr>
+    <td>ft_substr</td>
+    <td>Allocates (with malloc(3)) and returns a substring from the string ’s’. The substring begins at index ’start’ and is of maximum size ’len’.</td>
+    <td><a href="#ft_substr">Explained</a></td>
+    <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_substr.c">ft_substr.c</a></td>
+  </tr>
+</table>
 
 <h2>Bonus functions</h2>
 
@@ -51,7 +64,7 @@
 
 <h2>ft_isalpha</h2>
 
-```
+```c
 /*
 Theory:
 All relational (< <= > >= == !=) and logical (&& || !) operations
@@ -73,7 +86,7 @@ int	ft_isalpha(int c)
 
 <h2>ft_isdigit</h2>
 
-```
+```c
 /*
 Theory:
 The characters '0' through '9' have ASCII values 48 through 57.
@@ -84,5 +97,70 @@ parameter has an ASCII value between '0' and '9'.
 int	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
+}
+```
+
+<h2>ft_substr</h2>
+
+```c
+/*
+This function, ft_min, is an auxiliary function used to return the smaller
+of two unsigned values. All auxiliary functions must be declared as static,
+which limits their scope (places where this function can be called) to this file.
+*/
+static size_t	ft_min(size_t n1, size_t n2)
+{
+	if (n1 <= n2)
+		return (n1);
+	else
+		return (n2);
+}
+
+/*
+Parameters
+'s': The string from which to create the substring
+'start': The start index of the substring in the string ’s’
+'len': The maximum length of the substring
+*/
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char			*substr;
+	unsigned int	real_len;
+	unsigned int	i;
+
+	// Find out the length of the string 's' we are given as parameter
+	real_len = ft_strlen(s);
+	// If the 'start' index is outside of the parameter string 's',
+	// malloc and return empty string. For convenience, we use ft_strdup
+	// Example:
+	// ft_substr("hello", 200, 5)
+	if (start > real_len)
+		return (ft_strdup(""));
+	// Now that we know 'start' is a valid index inside our string 's',
+	// we calculate how much memory space we need.
+	// The parameter 'len' tells us the maximum length of the string, but it
+	// could be the case that the substring is smaller.
+	// Example:
+	// ft_substr("hello", 3, 42)
+	// Starting from index 3, we get the string "lo". The 'len' being 42 does
+	// not matter because the real length of the string from the starting index
+	// is smaller. In this case, we would malloc 3 bytes -> (5 - 3) + 1
+	substr = malloc(sizeof(char) * (ft_min(len, real_len - start) + 1));
+	if (substr == NULL)
+		return (NULL);
+	i = 0;
+	// Now we copy characters from 's' until:
+	// we have already copied 'len' characters
+	// OR
+	// we reach the end of the string 's'
+	// Notice how we don't start copying at index 0, we start at index 'start'
+	while (i < len && s[start + i] != '\0')
+	{
+		substr[i] = s[start + i];
+		++i;
+	}
+	// All strings in C must end with a null terminator, the character '\0'
+	substr[i] = '\0';
+	return (substr);
 }
 ```

@@ -262,6 +262,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 <h2>ft_strtrim</h2>
 
 ```c
+/*
+This auxiliary function puts the indexes of the first and last characters
+in the string 's1' which are not part of the string 'set'.
+It is useful because 'last' - 'first' + 1 is the length of the resulting string
+*/
 static void	calculate_valid_range(int *first, int *last,
 	char const *s1, char const *set)
 {
@@ -282,6 +287,11 @@ static void	calculate_valid_range(int *first, int *last,
 	}
 }
 
+/*
+The function removes all characters from string 'set' found
+at the beginning and end of the string 's1'
+Example: ft_strtrim("   hello    world    ", " ") -> "hello    world"
+*/
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*res;
@@ -290,14 +300,20 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		last_char;
 	int		len;
 
+	// This function gives me the indexes of the first
+	// and last characters that must not be removed
 	calculate_valid_range(&first_char, &last_char, s1, set);
+	// If all characters in 's1' must be removed, return empty string
 	if (first_char == -1)
 		return (ft_strdup(""));
 	len = last_char - first_char + 1;
+	// Malloc the necessary length + 1 (for \0 character)
 	res = malloc(sizeof(char) * (len + 1));
 	if (res == NULL)
 		return (NULL);
 	i = 0;
+	// Copy from 's1' into 'res'. Use 'first_char' as an offset,
+	// to skip the removed chars at the beginning of 's1'
 	while (i < len)
 	{
 		res[i] = s1[first_char + i];

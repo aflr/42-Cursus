@@ -292,25 +292,53 @@ char	*ft_strjoin(char const *s1, char const *s2)
 <h2>ft_putchar_fd</h2>
 
 ```c
-
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}
 ```
 
 <h2>ft_putstr_fd</h2>
 
 ```c
-
+void	ft_putstr_fd(char *s, int fd)
+{
+	write(fd, s, ft_strlen(s));
+}
 ```
 
 <h2>ft_putendl_fd</h2>
 
 ```c
-
+void	ft_putendl_fd(char *s, int fd)
+{
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
+}
 ```
 
 <h2>ft_putnbr_fd</h2>
 
 ```c
+void	ft_putnbr_fd(int n, int fd)
+{
+	long	ln;
 
+	ln = n;
+	if (ln == 0)
+	{
+		write(fd, "0", 1);
+		return ;
+	}
+	if (ln < 0)
+	{
+		write(fd, "-", 1);
+		ln = -ln;
+	}
+	if (ln > 9)
+		ft_putnbr_fd((int)(ln / 10), fd);
+	ft_putchar_fd(ln % 10 + '0', fd);
+}
 ```
 
 <hr>

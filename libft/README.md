@@ -63,19 +63,20 @@
   </tr>
   <tr>
     <td>ft_strtrim</td>
-    <td></td>
+    <td>Allocates (with malloc(3)) and returns a copy of ’s1’ with the characters specified in ’set’ removed from the beginning and the end of the string.
+</td>
     <td><a href="#ft_strtrim">Explained</a></td>
     <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_strtrim.c">ft_strtrim.c</a></td>
   </tr>
   <tr>
     <td>ft_split</td>
-    <td></td>
+    <td>Allocates (with malloc(3)) and returns an array of strings obtained by splitting ’s’ using the character ’c’ as a delimiter. The array must end with a NULL pointer.</td>
     <td><a href="#ft_split">Explained</a></td>
     <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_split.c">ft_split.c</a></td>
   </tr>
   <tr>
     <td>ft_itoa</td>
-    <td></td>
+    <td>Allocates (with malloc(3)) and returns a string representing the integer received as an argument. Negative numbers must be handled.</td>
     <td><a href="#ft_itoa">Explained</a></td>
     <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_itoa.c">ft_itoa.c</a></td>
   </tr>
@@ -123,6 +124,8 @@ int	ft_isdigit(int c)
 	return (c >= '0' && c <= '9');
 }
 ```
+
+<hr>
 
 <h2>ft_substr</h2>
 
@@ -219,3 +222,59 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (res);
 }
 ```
+
+<h2>ft_strtrim</h2>
+
+```c
+
+```
+
+<h2>ft_split</h2>
+
+```c
+
+```
+
+<h2>ft_itoa</h2>
+
+```c
+
+```
+
+<h2>ft_strmapi</h2>
+
+```c
+
+```
+
+<h2>ft_striteri</h2>
+
+```c
+
+```
+
+<h2>ft_putchar_fd</h2>
+
+```c
+
+```
+
+<h2>ft_putstr_fd</h2>
+
+```c
+
+```
+
+<h2>ft_putendl_fd</h2>
+
+```c
+
+```
+
+<h2>ft_putnbr_fd</h2>
+
+```c
+
+```
+
+<hr>

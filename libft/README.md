@@ -639,12 +639,23 @@ t_list	*ft_lstnew(void *content)
 <h2>ft_lstadd_front</h2>
 
 ```c
+/*
+This function adds a node to the beginning of a linked list. In essence, there are 2 steps:
+1. Assign the previous beginning of list to new node's next
+2. Update list reference (aka first node's address) to new node
+*/
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
+	// Check if both lst and new exist
 	if (lst == NULL || new == NULL)
 		return ;
+	// If list '*lst' isn't empty (first node is not NULL)
+	// Assign the next of 'new' to beginning of list 'lst'
+	// This 'if' can be removed and always do the assignment "new->next = *lst;"
 	if (*lst != NULL)
 		new->next = *lst;
+	// Update list reference '*lst' to 'new' node
+	// 'new->next' is already pointing to previous beginning of list '*lst' or NULL
 	*lst = new;
 }
 ```
@@ -652,13 +663,27 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 <h2>ft_lstsize</h2>
 
 ```c
+/*
+This function counts the number of nodes in a linked list.
+To do this, we iterate the list and increment a counter variable after every node we find
+*/
 int	ft_lstsize(t_list *lst)
 {
 	int	size;
 
-	size = 0;
-	while (lst && ++size)
-		lst = lst->next;
+	size = 0; // counter variable
+	// while node 'lst' exists (!= NULL), add to counter
+	// (... && ++size) never affects the condition, and only happens if lst is not NULL
+	while (lst && ++size)		// this saves lines by using short-circuit evaluation.
+		lst = lst->next;	// then go to next node
 	return (size);
 }
+// More about short-circuit evaluation: https://en.wikipedia.org/wiki/Short-circuit_evaluation
+/* // A more readable way to write the while loop would have been:
+while (lst)
+{
+  ++size;
+  lst = lst->next;
+}
+*/
 ```

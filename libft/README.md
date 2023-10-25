@@ -132,6 +132,18 @@
     <td><a href="#ft_lstnew">Explained</a></td>
     <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_lstnew_bonus.c">ft_lstnew_bonus.c</a></td>
   </tr>
+  <tr>
+    <td>ft_lstadd_front</td>
+    <td>Adds the node ’new’ at the beginning of the list.</td>
+    <td><a href="#ft_lstadd_front">Explained</a></td>
+    <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_lstadd_front_bonus.c">ft_lstadd_front_bonus.c</a></td>
+  </tr>
+  <tr>
+    <td>ft_lstsize</td>
+    <td>Counts the number of nodes in a list.</td>
+    <td><a href="#ft_lstsize">Explained</a></td>
+    <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_lstsize_bonus.c">ft_lstsize_bonus.c</a></td>
+  </tr>
 </table>
 
 <hr>
@@ -621,5 +633,32 @@ t_list	*ft_lstnew(void *content)
 	new_node->content = content;
 	new_node->next = NULL;
 	return (new_node);
+}
+```
+
+<h2>ft_lstadd_front</h2>
+
+```c
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (lst == NULL || new == NULL)
+		return ;
+	if (*lst != NULL)
+		new->next = *lst;
+	*lst = new;
+}
+```
+
+<h2>ft_lstsize</h2>
+
+```c
+int	ft_lstsize(t_list *lst)
+{
+	int	size;
+
+	size = 0;
+	while (lst && ++size)
+		lst = lst->next;
+	return (size);
 }
 ```

@@ -627,10 +627,15 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*new_node;
 
+	// Allocate memory for new node
 	new_node = (t_list *)malloc(sizeof(t_list));
 	if (new_node == NULL)
 		return (NULL);
+	// Assign parameter 'content' into node->content
+	// This is a generic pointer to anything in memory
 	new_node->content = content;
+	// The new node doesn't have next node
+	// We explicitly initialize it with NULL
 	new_node->next = NULL;
 	return (new_node);
 }

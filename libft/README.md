@@ -262,31 +262,217 @@ char	*ft_strjoin(char const *s1, char const *s2)
 <h2>ft_strtrim</h2>
 
 ```c
+static void	calculate_valid_range(int *first, int *last,
+	char const *s1, char const *set)
+{
+	int	i;
 
+	*first = -1;
+	*last = -1;
+	i = 0;
+	while (s1[i] != '\0')
+	{
+		if (ft_strchr(set, s1[i]) == NULL)
+		{
+			if (*first == -1)
+				*first = i;
+			*last = i;
+		}
+		++i;
+	}
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	char	*res;
+	int		i;
+	int		first_char;
+	int		last_char;
+	int		len;
+
+	calculate_valid_range(&first_char, &last_char, s1, set);
+	if (first_char == -1)
+		return (ft_strdup(""));
+	len = last_char - first_char + 1;
+	res = malloc(sizeof(char) * (len + 1));
+	if (res == NULL)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		res[i] = s1[first_char + i];
+		++i;
+	}
+	res[i] = '\0';
+	return (res);
+}
 ```
 
 <h2>ft_split</h2>
 
 ```c
+static int	count_words(const char *s, char c)
+{
+	int	words;
+	int	in_word;
+	int	i;
 
+	words = 0;
+	in_word = 0;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (!in_word && s[i] != c)
+		{
+			in_word = 1;
+			++words;
+		}
+		else if (in_word && s[i] == c)
+			in_word = 0;
+		++i;
+	}
+	return (words);
+}
+
+static void	advance_index_len(char const *s, char c, int *j, int *len)
+{
+	*len = 0;
+	while (s[*j] != '\0' && s[*j] == c)
+		*j = *j + 1;
+	while (s[*j] != '\0' && s[*j] != c)
+	{
+		*j = *j + 1;
+		*len = *len + 1;
+	}
+}
+
+static void	*free_everything(char **res, int stop)
+{
+	int	i;
+
+	i = 0;
+	while (i <= stop)
+		free(res[i++]);
+	free(res);
+	return (NULL);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**res;
+	int		word_count;
+	int		len;
+	int		i;
+	int		j;
+
+	word_count = count_words(s, c);
+	res = malloc(sizeof(char *) * (word_count + 1));
+	if (res == NULL)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (i < word_count)
+	{
+		advance_index_len(s, c, &j, &len);
+		res[i] = ft_substr(s, j - len, len);
+		if (res[i] == NULL)
+			return (free_everything(res, i), NULL);
+		++i;
+	}
+	res[word_count] = NULL;
+	return (res);
+}
 ```
 
 <h2>ft_itoa</h2>
 
 ```c
+static size_t	num_length(int n)
+{
+	int		len;
+	long	copy;
 
+	if (n == 0)
+		return (1);
+	len = 0;
+	copy = n;
+	if (copy < 0)
+	{
+		++len;
+		copy = -copy;
+	}
+	while (copy > 0)
+	{
+		copy /= 10;
+		++len;
+	}
+	return (len);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*a;
+	long	copy;
+	int		len;
+
+	len = num_length(n);
+	a = malloc(sizeof(char) * (len + 1));
+	if (a == NULL)
+		return (NULL);
+	copy = n;
+	if (copy == 0)
+		a[0] = '0';
+	if (copy < 0)
+	{
+		a[0] = '-';
+		copy = -copy;
+	}
+	a[len--] = '\0';
+	while (copy > 0)
+	{
+		a[len--] = copy % 10 + '0';
+		copy /= 10;
+	}
+	return (a);
+}
 ```
 
 <h2>ft_strmapi</h2>
 
 ```c
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	char			*res;
+	unsigned int	i;
 
+	res = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (res == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i] != '\0')
+	{
+		res[i] = (*f)(i, s[i]);
+		++i;
+	}
+	res[i] = '\0';
+	return (res);
+}
 ```
 
 <h2>ft_striteri</h2>
 
 ```c
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+{
+	unsigned int	i;
 
+	i = 0;
+	while (s[i] != '\0')
+	{
+		(*f)(i, s + i);
+		++i;
+	}
+}
 ```
 
 <h2>ft_putchar_fd</h2>

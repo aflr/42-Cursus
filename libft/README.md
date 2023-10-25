@@ -28,14 +28,14 @@
   <tr>
     <td>ft_isalpha</td>
     <td>&lt;ctype.h&gt;</td>
-    <td>Checks if the given character is an alphabetic character, i.e. either an uppercase or lowercase letter</td>
+    <td>Checks if the given character is an alphabetic character, i.e. either an uppercase or lowercase letter.</td>
     <td><a href="#ft_isalpha">Explained</a></td>
     <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_isalpha.c">ft_isalpha.c</a></td>
   </tr>
   <tr>
     <td>ft_isdigit</td>
     <td>&lt;ctype.h&gt;</td>
-    <td>Checks for a digit (0 through 9)</td>
+    <td>Checks for a digit (0 through 9).</td>
     <td><a href="#ft_isdigit">Explained</a></td>
     <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_isdigit.c">ft_isdigit.c</a></td>
   </tr>

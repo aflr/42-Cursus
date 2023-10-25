@@ -32,6 +32,13 @@
     <td><a href="#ft_isalpha">Explained</a></td>
     <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_isalpha.c">ft_isalpha.c</a></td>
   </tr>
+  <tr>
+    <td>ft_isdigit</td>
+    <td>&lt;ctype.h&gt;</td>
+    <td>Checks for a digit (0 through 9)</td>
+    <td><a href="#ft_isdigit">Explained</a></td>
+    <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_isdigit.c">ft_isdigit.c</a></td>
+  </tr>
 </table>
 
 <h2>Additional functions</h2>
@@ -61,5 +68,21 @@ OR
 int	ft_isalpha(int c)
 {
 	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+}
+```
+
+<h2>ft_isdigit</h2>
+
+```
+/*
+Theory:
+The characters '0' through '9' have ASCII values 48 through 57.
+
+This function will return 1 (true) when the character received as
+parameter has an ASCII value between '0' and '9'.
+*/
+int	ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
 }
 ```

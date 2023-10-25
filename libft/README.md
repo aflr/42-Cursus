@@ -674,7 +674,7 @@ int	ft_lstsize(t_list *lst)
 	size = 0; // counter variable
 	// while node 'lst' exists (!= NULL), add to counter
 	// (... && ++size) never affects the condition, and only happens if lst is not NULL
-	while (lst && ++size)		// this saves lines by using short-circuit evaluation.
+	while (lst && ++size)		// this trick saves lines by using short-circuit evaluation.
 		lst = lst->next;	// then go to next node
 	return (size);
 }

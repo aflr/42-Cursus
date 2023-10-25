@@ -55,6 +55,12 @@
     <td><a href="#ft_substr">Explained</a></td>
     <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_substr.c">ft_substr.c</a></td>
   </tr>
+  <tr>
+    <td>ft_strjoin</td>
+    <td>Allocates (with malloc(3)) and returns a new string, which is the result of the concatenation of ’s1’ and ’s2’.</td>
+    <td><a href="#ft_strjoin">Explained</a></td>
+    <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_strjoin.c">ft_strjoin.c</a></td>
+  </tr>
 </table>
 
 <h2>Bonus functions</h2>
@@ -162,5 +168,36 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	// All strings in C must end with a null terminator, the character '\0'
 	substr[i] = '\0';
 	return (substr);
+}
+```
+
+<h2>ft_strjoin</h2>
+
+```c
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*res;
+	int		i;
+	int		j;
+
+	// We allocate enough memory for 's1' + 's2' + 1 (for the '\0' byte at the end)
+	res = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (res == NULL)
+		return (NULL);
+	// We copy 's1' into 'new' starting at 'res' position 0
+	i = 0;
+	while (s1[i] != '\0')
+	{
+		res[i] = s1[i];
+		++i;
+	}
+	// We copy 's2' into 'new' starting at 'res' position 'i'
+	// 'i' is the index where we stopped copying 's1'
+	j = 0;
+	while (s2[j] != '\0')
+		res[i++] = s2[j++];
+	// All strings in C must end with a null terminator, the character '\0'
+	res[i] = '\0';
+	return (res);
 }
 ```

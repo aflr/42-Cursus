@@ -119,7 +119,20 @@
 </table>
 
 <h2>Bonus functions</h2>
-
+<table>
+  <tr>
+    <th>Function name</th>
+    <th>Description</th>
+    <th>Go to code explanation</th>
+    <th>Link to source code</th>
+  </tr>
+  <tr>
+    <td>ft_lstnew</td>
+    <td>Allocates (with malloc(3)) and returns a new node. The member variable ’content’ is initialized with the value of the parameter ’content’. The variable ’next’ is initialized to NULL.</td>
+    <td><a href="#ft_lstnew">Explained</a></td>
+    <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_lstnew_bonus.c">ft_lstnew_bonus.c</a></td>
+  </tr>
+</table>
 
 <hr>
 
@@ -594,3 +607,19 @@ void	ft_putnbr_fd(int n, int fd)
 ```
 
 <hr>
+
+<h2>ft_lstnew</h2>
+
+```c
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*new_node;
+
+	new_node = (t_list *)malloc(sizeof(t_list));
+	if (new_node == NULL)
+		return (NULL);
+	new_node->content = content;
+	new_node->next = NULL;
+	return (new_node);
+}
+```

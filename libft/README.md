@@ -1,5 +1,3 @@
-<h1 align="center"> 🚧 README under construction 🚧 </h1>
-
 <h1 align="center">libft</h1>
 
 <blockquote>This project is about coding a C library. It will contain a lot of general purpose functions your programs will rely upon.</blockquote>
@@ -11,6 +9,8 @@
   ·
   <a href="#bonus-functions">Bonus functions</a>
 </h2>
+
+<h2 align="center">:white_check_mark: Everything passes francinette and francinette strict. :white_check_mark:</h2>
 
 <div align="center">
   <img src="https://github.com/aflr/aflr/blob/main/src/badges/libftm.png">
@@ -66,7 +66,7 @@
 <h2>Bonus functions</h2>
 
 
-<h2>:white_check_mark: Everything passes francinette and francinette strict. :white_check_mark:</h2>
+<hr>
 
 <h2>ft_isalpha</h2>
 

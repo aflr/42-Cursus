@@ -61,6 +61,24 @@
     <td><a href="#ft_strjoin">Explained</a></td>
     <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_strjoin.c">ft_strjoin.c</a></td>
   </tr>
+  <tr>
+    <td>ft_strtrim</td>
+    <td></td>
+    <td><a href="#ft_strtrim">Explained</a></td>
+    <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_strtrim.c">ft_strtrim.c</a></td>
+  </tr>
+  <tr>
+    <td>ft_split</td>
+    <td></td>
+    <td><a href="#ft_split">Explained</a></td>
+    <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_split.c">ft_split.c</a></td>
+  </tr>
+  <tr>
+    <td>ft_itoa</td>
+    <td></td>
+    <td><a href="#ft_itoa">Explained</a></td>
+    <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_itoa.c">ft_itoa.c</a></td>
+  </tr>
 </table>
 
 <h2>Bonus functions</h2>

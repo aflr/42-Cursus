@@ -327,22 +327,30 @@ char	*ft_strtrim(char const *s1, char const *set)
 <h2>ft_split</h2>
 
 ```c
+/*
+Auxiliary function to count how many words are in a string, given
+a delimiter character 'c'
+*/
 static int	count_words(const char *s, char c)
 {
 	int	words;
 	int	in_word;
 	int	i;
 
-	words = 0;
-	in_word = 0;
-	i = 0;
+	words = 0;	// counter
+	in_word = 0;	// boolean, are we already in a word or not
+	i = 0;		// index to iterate string 's'
 	while (s[i] != '\0')
 	{
+		// if not in word and non-delimiter found,
+		// we just entered a word, update boolean and counter
 		if (!in_word && s[i] != c)
 		{
 			in_word = 1;
 			++words;
 		}
+		// if in word and delimiter found,
+		// we just left a word, update boolean
 		else if (in_word && s[i] == c)
 			in_word = 0;
 		++i;
@@ -362,6 +370,10 @@ static void	advance_index_len(char const *s, char c, int *j, int *len)
 	}
 }
 
+/*
+Auxiliary function to free all array elements (strings) until index 'stop'
+Then, free the array itself
+*/
 static void	*free_everything(char **res, int stop)
 {
 	int	i;

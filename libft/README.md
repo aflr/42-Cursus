@@ -467,8 +467,12 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	unsigned int	i;
 
 	i = 0;
+	// Iterate the string 's'
 	while (s[i] != '\0')
 	{
+		// Apply function 'f' to every character from string
+		// Function 'f' requires 2 parameters:
+		// index, and pointer to current char
 		(*f)(i, s + i);
 		++i;
 	}
@@ -480,6 +484,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 ```c
 void	ft_putchar_fd(char c, int fd)
 {
+	// Write char
 	write(fd, &c, 1);
 }
 ```
@@ -489,6 +494,7 @@ void	ft_putchar_fd(char c, int fd)
 ```c
 void	ft_putstr_fd(char *s, int fd)
 {
+	// Write string
 	write(fd, s, ft_strlen(s));
 }
 ```
@@ -498,6 +504,7 @@ void	ft_putstr_fd(char *s, int fd)
 ```c
 void	ft_putendl_fd(char *s, int fd)
 {
+	// Write string, then write '\n'
 	ft_putstr_fd(s, fd);
 	write(fd, "\n", 1);
 }
@@ -510,19 +517,25 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	long	ln;
 
+	// To avoid problems when 'n' is INT_MIN (-2147483648), use long data type
 	ln = n;
+	// If number is zero (0), write it and exit function
 	if (ln == 0)
 	{
 		write(fd, "0", 1);
 		return ;
 	}
+	// If number is negative, write minus (-) sign and make number positive
 	if (ln < 0)
 	{
 		write(fd, "-", 1);
 		ln = -ln;
 	}
+	// If number has more than 1 digit, print all digits except the rightmost one
+	// By recursively calling itself with number divided by 10
 	if (ln > 9)
 		ft_putnbr_fd((int)(ln / 10), fd);
+	// Now print rightmost digit (ln % 10) as ASCII character ( + '0')
 	ft_putchar_fd(ln % 10 + '0', fd);
 }
 ```

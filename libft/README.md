@@ -536,7 +536,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 		// Apply function 'f' to every character from string
 		// Function 'f' requires 2 parameters:
 		// index, and pointer to current char
-		(*f)(i, s + i); // Alternative syntax: f(i, &s[i]);
+		(*f)(i, s + i); // Equivalent syntax: f(i, &s[i]);
 		++i;
 	}
 }

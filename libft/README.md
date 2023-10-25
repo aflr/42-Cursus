@@ -29,7 +29,7 @@
     <td>ft_isalpha</td>
     <td>&lt;ctype.h&gt;</td>
     <td>Checks if the given character is an alphabetic character, i.e. either an uppercase or lowercase letter</td>
-    <td></td>
+    <td><a href="#ft_isalpha">Explained</a></td>
     <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_isalpha.c">ft_isalpha.c</a></td>
   </tr>
 </table>
@@ -41,3 +41,25 @@
 
 
 <h2>:white_check_mark: Everything passes francinette and francinette strict. :white_check_mark:</h2>
+
+<h2>ft_isalpha</h2>
+
+```
+/*
+Theory:
+All relational (< <= > >= == !=) and logical (&& || !) operations
+in C evaluate to a zero (0) when false, or one (1) when true.
+Also, all numeric values are considered to be true except zero (0).
+
+This function will return 1 (true) when the character received as
+parameter has an ASCII value in the interval:
+(c >= 'a' && c <= 'z') which are all the lowercase letters
+OR
+(c >= 'A' && c <= 'Z') which are all the uppercase letters
+*/
+
+int	ft_isalpha(int c)
+{
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+}
+```

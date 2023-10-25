@@ -192,7 +192,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		++i;
 	}
 	// We copy 's2' into 'new' starting at 'res' position 'i'
-	// 'i' is the index where we stopped copying 's1'
+	// 'i' is the index where we finished copying 's1'
 	j = 0;
 	while (s2[j] != '\0')
 		res[i++] = s2[j++];

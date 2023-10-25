@@ -403,6 +403,10 @@ char	**ft_split(char const *s, char c)
 <h2>ft_itoa</h2>
 
 ```c
+/*
+This auxiliary function returns the length 'len' in characters
+needed to represent the base 10 (decimal) number 'n'
+*/
 static size_t	num_length(int n)
 {
 	int		len;
@@ -435,15 +439,19 @@ char	*ft_itoa(int n)
 	a = malloc(sizeof(char) * (len + 1));
 	if (a == NULL)
 		return (NULL);
+	// Use a long variable to avoid problems with INT_MIN (-2147483648)
 	copy = n;
+	// Add zero ('0') char at first position if number is zero (0)
 	if (copy == 0)
 		a[0] = '0';
+	// Add minus (-) char at position zero (0) if negative number
 	if (copy < 0)
 	{
 		a[0] = '-';
 		copy = -copy;
 	}
 	a[len--] = '\0';
+	// Digits ('0' to '9') are added to the string/array from right to left
 	while (copy > 0)
 	{
 		a[len--] = copy % 10 + '0';
@@ -456,17 +464,26 @@ char	*ft_itoa(int n)
 <h2>ft_strmapi</h2>
 
 ```c
+/*
+This function creates a new string, where its characters result from applying
+the function 'f' to every character of the string 's'.
+The parameter string 's' should not be modified
+*/
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char			*res;
 	unsigned int	i;
 
+	// Allocate memory for new string 'res'
 	res = malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (res == NULL)
 		return (NULL);
 	i = 0;
+	// Iterate the string 's'
 	while (s[i] != '\0')
 	{
+		// Apply function 'f' to chars in 's' (not-in-place)
+		// Assign the resulting chars to 'res' string
 		res[i] = (*f)(i, s[i]);
 		++i;
 	}
@@ -478,6 +495,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 <h2>ft_striteri</h2>
 
 ```c
+/*
+This function applies the function 'f' to every character
+of the string 's', modifying the string in-place.
+The parameter string 's' should be modified
+*/
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	unsigned int	i;
@@ -529,6 +551,9 @@ void	ft_putendl_fd(char *s, int fd)
 <h2>ft_putnbr_fd</h2>
 
 ```c
+/*
+This function prints a base 10 number 'n' into the file descriptor 'fd'
+*/
 void	ft_putnbr_fd(int n, int fd)
 {
 	long	ln;

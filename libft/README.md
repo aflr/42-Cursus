@@ -144,6 +144,12 @@
     <td><a href="#ft_lstsize">Explained</a></td>
     <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_lstsize_bonus.c">ft_lstsize_bonus.c</a></td>
   </tr>
+  <tr>
+    <td>ft_lstlast</td>
+    <td>Returns the last node of the list.</td>
+    <td><a href="#ft_lstlast">Explained</a></td>
+    <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_lstlast_bonus.c">ft_lstlast_bonus.c</a></td>
+  </tr>
 </table>
 
 <hr>
@@ -706,4 +712,20 @@ while (lst)
   lst = lst->next;
 }
 */
+```
+
+<h2>ft_lstsize</h2>
+
+```c
+/*
+This function returns the last node of a linked list.
+*/
+t_list	*ft_lstlast(t_list *lst)
+{
+	// This condition allows us to iterate over the list nodes
+	// and stop whenever the next node is NULL (lst must be the last node)
+	while (lst && lst->next)
+		lst = lst->next;
+	return (lst);
+}
 ```

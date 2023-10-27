@@ -150,6 +150,12 @@
     <td><a href="#ft_lstlast">Explained</a></td>
     <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_lstlast_bonus.c">ft_lstlast_bonus.c</a></td>
   </tr>
+  <tr>
+    <td>ft_lstadd_back</td>
+    <td>Adds the node ’new’ at the end of the list.</td>
+    <td><a href="#ft_lstadd_back">Explained</a></td>
+    <td><a href="https://github.com/aflr/42-Cursus/blob/main/libft/ft_lstadd_back_bonus.c">ft_lstadd_back_bonus.c</a></td>
+  </tr>
 </table>
 
 <hr>
@@ -727,5 +733,26 @@ t_list	*ft_lstlast(t_list *lst)
 	while (lst && lst->next)
 		lst = lst->next;
 	return (lst);
+}
+```
+
+<h2>ft_lstadd_back</h2>
+
+```c
+/*
+This function adds the node ’new’ at the end of the list.
+Notice that we receive t_list **lst, so we are able to modify the list's reference
+(change which one is the first node of the list)
+*/
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	// If there is no list or no new node, do nothing (early return)
+	if (lst == NULL || new == NULL)
+		return ;
+	// If the list is empty, the new node becomes the first node of the list
+	if (*lst == NULL)
+		*lst = new;
+	else	// Otherwise, the new node will be the next node of the last node
+		ft_lstlast(*lst)->next = new;
 }
 ```

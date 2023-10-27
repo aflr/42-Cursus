@@ -383,6 +383,14 @@ static int	count_words(const char *s, char c)
 	return (words);
 }
 
+/*
+Auxiliary function to help use substring function.
+It receives a string 's' that always includes a valid word,
+and it may be preceded by a number of delimiter chars 'c'
+It returns, through the use of pointers, 2 things:
+1. Counts the length of the next valid word, including possible preceding delimiters into 'j'
+2. Counts the length of the next valid word into 'len'
+*/
 static void	advance_index_len(char const *s, char c, int *j, int *len)
 {
 	*len = 0;
@@ -418,20 +426,27 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	int		j;
 
+	// Count words in order to allocate memory for the array
 	word_count = count_words(s, c);
+	// Allocate one extra pointer for the ending NULL
 	res = malloc(sizeof(char *) * (word_count + 1));
 	if (res == NULL)
 		return (NULL);
 	i = 0;
 	j = 0;
+	// Iterate over words
 	while (i < word_count)
 	{
+		// Function to find out starting index and length of the next valid word
 		advance_index_len(s, c, &j, &len);
+		// Allocate and copy word into array position 'i'
 		res[i] = ft_substr(s, j - len, len);
+		// If substring failed, free before returning to avoid leaks
 		if (res[i] == NULL)
 			return (free_everything(res, i), NULL);
 		++i;
 	}
+	// Add NULL to end of array
 	res[word_count] = NULL;
 	return (res);
 }

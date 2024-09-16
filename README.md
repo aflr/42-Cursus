@@ -10,3 +10,4 @@ born2beroot| <img src="https://github.com/aflr/aflr/blob/main/src/120.png" width
 minitalk|<img src="https://github.com/aflr/aflr/blob/main/src/125.PNG" width="60">|
 so_long|<img src="https://github.com/aflr/aflr/blob/main/src/125.PNG" width="60">|
 push_swap|<img src="https://github.com/aflr/aflr/blob/main/src/125.PNG" width="60">|
+philosophers|<img src="https://github.com/aflr/aflr/blob/main/src/100.PNG" width="60">|

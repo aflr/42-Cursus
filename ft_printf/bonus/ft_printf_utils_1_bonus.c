@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils_1_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aflorido <aflorido@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: aflorido <aflorido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 13:07:50 by aflorido          #+#    #+#             */
-/*   Updated: 2024/09/16 16:19:56 by aflorido         ###   ########.fr       */
+/*   Updated: 2024/10/02 17:54:30 by aflorido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aflorido <aflorido@student.42malaga.com    +#+  +:+       +#+         #
+#    By: aflorido <aflorido@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/16 10:28:20 by aflorido          #+#    #+#              #
-#    Updated: 2024/09/19 20:13:48 by aflorido         ###   ########.fr        #
+#    Updated: 2024/10/02 17:52:49 by aflorido         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ LIBC	= ar -rcs
 NAME	= libftprintf.a
 RM		= rm -rf
 
-# Mandatory part
+# Mandatory part (unused)
 DIR_MAN		= mandatory
 SRC_MAN		= ft_printf.c ft_printf_utils.c
 OBJ_MAN		= $(addprefix $(DIR_MAN)/,$(SRC_MAN:.c=.o))
@@ -34,8 +34,8 @@ OBJ_BON		= $(addprefix $(DIR_BON)/,$(SRC_BON:.c=.o))
 
 all: $(NAME)
 
-$(NAME): $(OBJ_MAN)
-	$(LIBC) $(NAME) $(OBJ_MAN)
+$(NAME): $(OBJ_BON)
+	$(LIBC) $(NAME) $(OBJ_BON)
 
 clean:
 	$(RM) $(OBJ_MAN) $(OBJ_BON)
@@ -45,15 +45,7 @@ fclean: clean
 
 re: fclean $(NAME)
 
-# !! NOTICE: !! The bonus part is evaluated separately.
-# This means that commands like "make all && make bonus" and viceversa
-# are not expected to work and in fact, they will not work.
-# The reason for not working is because the final library would include
-# the files from both parts, and this causes errors because of the repeated
-# functions.
-
-bonus: $(OBJ_BON)
-	$(LIBC) $(NAME) $(OBJ_BON)
+bonus: $(NAME)
 
 norm:
 	@norminette \

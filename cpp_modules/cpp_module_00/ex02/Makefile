@@ -1,0 +1,43 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aflorido <aflorido@student.42malaga.com    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/01/12 15:50:03 by aflorido          #+#    #+#              #
+#    Updated: 2025/01/15 19:56:51 by aflorido         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# --- Variables ---
+CXX				= c++
+CXXFLAGS		= -Wall -Wextra -Werror -std=c++98
+NAME			= tests
+SRC				= Account.cpp tests.cpp
+OBJ				= $(SRC:.cpp=.o)
+
+ORIGINAL_LOG	= 19920104_091532.log
+TIMESTAMP		= $(shell date +"%Y%m%d_%H%M%S")
+
+# --- Targets ---
+all: $(NAME)
+
+$(NAME): $(OBJ) $(ORIGINAL_LOG)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+
+clean:
+	$(RM) $(OBJ)
+
+fclean: clean
+	$(RM) $(NAME) *.log
+
+re: fclean all
+
+$(ORIGINAL_LOG):
+	@$(shell echo -n "WzE5OTIwMTA0XzA5MTUzMl0gaW5kZXg6MDthbW91bnQ6NDI7Y3JlYXRlZApbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDoxO2Ftb3VudDo1NDtjcmVhdGVkClsxOTkyMDEwNF8wOTE1MzJdIGluZGV4OjI7YW1vdW50Ojk1NztjcmVhdGVkClsxOTkyMDEwNF8wOTE1MzJdIGluZGV4OjM7YW1vdW50OjQzMjtjcmVhdGVkClsxOTkyMDEwNF8wOTE1MzJdIGluZGV4OjQ7YW1vdW50OjEyMzQ7Y3JlYXRlZApbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDo1O2Ftb3VudDowO2NyZWF0ZWQKWzE5OTIwMTA0XzA5MTUzMl0gaW5kZXg6NjthbW91bnQ6NzU0O2NyZWF0ZWQKWzE5OTIwMTA0XzA5MTUzMl0gaW5kZXg6NzthbW91bnQ6MTY1NzY7Y3JlYXRlZApbMTk5MjAxMDRfMDkxNTMyXSBhY2NvdW50czo4O3RvdGFsOjIwMDQ5O2RlcG9zaXRzOjA7d2l0aGRyYXdhbHM6MApbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDowO2Ftb3VudDo0MjtkZXBvc2l0czowO3dpdGhkcmF3YWxzOjAKWzE5OTIwMTA0XzA5MTUzMl0gaW5kZXg6MTthbW91bnQ6NTQ7ZGVwb3NpdHM6MDt3aXRoZHJhd2FsczowClsxOTkyMDEwNF8wOTE1MzJdIGluZGV4OjI7YW1vdW50Ojk1NztkZXBvc2l0czowO3dpdGhkcmF3YWxzOjAKWzE5OTIwMTA0XzA5MTUzMl0gaW5kZXg6MzthbW91bnQ6NDMyO2RlcG9zaXRzOjA7d2l0aGRyYXdhbHM6MApbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDo0O2Ftb3VudDoxMjM0O2RlcG9zaXRzOjA7d2l0aGRyYXdhbHM6MApbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDo1O2Ftb3VudDowO2RlcG9zaXRzOjA7d2l0aGRyYXdhbHM6MApbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDo2O2Ftb3VudDo3NTQ7ZGVwb3NpdHM6MDt3aXRoZHJhd2FsczowClsxOTkyMDEwNF8wOTE1MzJdIGluZGV4Ojc7YW1vdW50OjE2NTc2O2RlcG9zaXRzOjA7d2l0aGRyYXdhbHM6MApbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDowO3BfYW1vdW50OjQyO2RlcG9zaXQ6NTthbW91bnQ6NDc7bmJfZGVwb3NpdHM6MQpbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDoxO3BfYW1vdW50OjU0O2RlcG9zaXQ6NzY1O2Ftb3VudDo4MTk7bmJfZGVwb3NpdHM6MQpbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDoyO3BfYW1vdW50Ojk1NztkZXBvc2l0OjU2NDthbW91bnQ6MTUyMTtuYl9kZXBvc2l0czoxClsxOTkyMDEwNF8wOTE1MzJdIGluZGV4OjM7cF9hbW91bnQ6NDMyO2RlcG9zaXQ6MjthbW91bnQ6NDM0O25iX2RlcG9zaXRzOjEKWzE5OTIwMTA0XzA5MTUzMl0gaW5kZXg6NDtwX2Ftb3VudDoxMjM0O2RlcG9zaXQ6ODc7YW1vdW50OjEzMjE7bmJfZGVwb3NpdHM6MQpbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDo1O3BfYW1vdW50OjA7ZGVwb3NpdDoyMzthbW91bnQ6MjM7bmJfZGVwb3NpdHM6MQpbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDo2O3BfYW1vdW50Ojc1NDtkZXBvc2l0Ojk7YW1vdW50Ojc2MztuYl9kZXBvc2l0czoxClsxOTkyMDEwNF8wOTE1MzJdIGluZGV4Ojc7cF9hbW91bnQ6MTY1NzY7ZGVwb3NpdDoyMDthbW91bnQ6MTY1OTY7bmJfZGVwb3NpdHM6MQpbMTk5MjAxMDRfMDkxNTMyXSBhY2NvdW50czo4O3RvdGFsOjIxNTI0O2RlcG9zaXRzOjg7d2l0aGRyYXdhbHM6MApbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDowO2Ftb3VudDo0NztkZXBvc2l0czoxO3dpdGhkcmF3YWxzOjAKWzE5OTIwMTA0XzA5MTUzMl0gaW5kZXg6MTthbW91bnQ6ODE5O2RlcG9zaXRzOjE7d2l0aGRyYXdhbHM6MApbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDoyO2Ftb3VudDoxNTIxO2RlcG9zaXRzOjE7d2l0aGRyYXdhbHM6MApbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDozO2Ftb3VudDo0MzQ7ZGVwb3NpdHM6MTt3aXRoZHJhd2FsczowClsxOTkyMDEwNF8wOTE1MzJdIGluZGV4OjQ7YW1vdW50OjEzMjE7ZGVwb3NpdHM6MTt3aXRoZHJhd2FsczowClsxOTkyMDEwNF8wOTE1MzJdIGluZGV4OjU7YW1vdW50OjIzO2RlcG9zaXRzOjE7d2l0aGRyYXdhbHM6MApbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDo2O2Ftb3VudDo3NjM7ZGVwb3NpdHM6MTt3aXRoZHJhd2FsczowClsxOTkyMDEwNF8wOTE1MzJdIGluZGV4Ojc7YW1vdW50OjE2NTk2O2RlcG9zaXRzOjE7d2l0aGRyYXdhbHM6MApbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDowO3BfYW1vdW50OjQ3O3dpdGhkcmF3YWw6cmVmdXNlZApbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDoxO3BfYW1vdW50OjgxOTt3aXRoZHJhd2FsOjM0O2Ftb3VudDo3ODU7bmJfd2l0aGRyYXdhbHM6MQpbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDoyO3BfYW1vdW50OjE1MjE7d2l0aGRyYXdhbDo2NTc7YW1vdW50Ojg2NDtuYl93aXRoZHJhd2FsczoxClsxOTkyMDEwNF8wOTE1MzJdIGluZGV4OjM7cF9hbW91bnQ6NDM0O3dpdGhkcmF3YWw6NDthbW91bnQ6NDMwO25iX3dpdGhkcmF3YWxzOjEKWzE5OTIwMTA0XzA5MTUzMl0gaW5kZXg6NDtwX2Ftb3VudDoxMzIxO3dpdGhkcmF3YWw6NzY7YW1vdW50OjEyNDU7bmJfd2l0aGRyYXdhbHM6MQpbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDo1O3BfYW1vdW50OjIzO3dpdGhkcmF3YWw6cmVmdXNlZApbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDo2O3BfYW1vdW50Ojc2Mzt3aXRoZHJhd2FsOjY1NzthbW91bnQ6MTA2O25iX3dpdGhkcmF3YWxzOjEKWzE5OTIwMTA0XzA5MTUzMl0gaW5kZXg6NztwX2Ftb3VudDoxNjU5Njt3aXRoZHJhd2FsOjc2NTQ7YW1vdW50Ojg5NDI7bmJfd2l0aGRyYXdhbHM6MQpbMTk5MjAxMDRfMDkxNTMyXSBhY2NvdW50czo4O3RvdGFsOjEyNDQyO2RlcG9zaXRzOjg7d2l0aGRyYXdhbHM6NgpbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDowO2Ftb3VudDo0NztkZXBvc2l0czoxO3dpdGhkcmF3YWxzOjAKWzE5OTIwMTA0XzA5MTUzMl0gaW5kZXg6MTthbW91bnQ6Nzg1O2RlcG9zaXRzOjE7d2l0aGRyYXdhbHM6MQpbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDoyO2Ftb3VudDo4NjQ7ZGVwb3NpdHM6MTt3aXRoZHJhd2FsczoxClsxOTkyMDEwNF8wOTE1MzJdIGluZGV4OjM7YW1vdW50OjQzMDtkZXBvc2l0czoxO3dpdGhkcmF3YWxzOjEKWzE5OTIwMTA0XzA5MTUzMl0gaW5kZXg6NDthbW91bnQ6MTI0NTtkZXBvc2l0czoxO3dpdGhkcmF3YWxzOjEKWzE5OTIwMTA0XzA5MTUzMl0gaW5kZXg6NTthbW91bnQ6MjM7ZGVwb3NpdHM6MTt3aXRoZHJhd2FsczowClsxOTkyMDEwNF8wOTE1MzJdIGluZGV4OjY7YW1vdW50OjEwNjtkZXBvc2l0czoxO3dpdGhkcmF3YWxzOjEKWzE5OTIwMTA0XzA5MTUzMl0gaW5kZXg6NzthbW91bnQ6ODk0MjtkZXBvc2l0czoxO3dpdGhkcmF3YWxzOjEKWzE5OTIwMTA0XzA5MTUzMl0gaW5kZXg6MDthbW91bnQ6NDc7Y2xvc2VkClsxOTkyMDEwNF8wOTE1MzJdIGluZGV4OjE7YW1vdW50Ojc4NTtjbG9zZWQKWzE5OTIwMTA0XzA5MTUzMl0gaW5kZXg6MjthbW91bnQ6ODY0O2Nsb3NlZApbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDozO2Ftb3VudDo0MzA7Y2xvc2VkClsxOTkyMDEwNF8wOTE1MzJdIGluZGV4OjQ7YW1vdW50OjEyNDU7Y2xvc2VkClsxOTkyMDEwNF8wOTE1MzJdIGluZGV4OjU7YW1vdW50OjIzO2Nsb3NlZApbMTk5MjAxMDRfMDkxNTMyXSBpbmRleDo2O2Ftb3VudDoxMDY7Y2xvc2VkClsxOTkyMDEwNF8wOTE1MzJdIGluZGV4Ojc7YW1vdW50Ojg5NDI7Y2xvc2VkCg==" | base64 -d > 19920104_091532.log)
+
+run: $(NAME)
+	./$(NAME) > $(TIMESTAMP).log
+
+.PHONY: all clean fclean re
